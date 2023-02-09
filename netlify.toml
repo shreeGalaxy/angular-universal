@@ -5,6 +5,9 @@
 
 [build]
     command = "npm run build:ssr && ng run copy:files"
+    commandOrigin = "config"
+    publish = "/opt/build/repo/dist/angular-universal/browser"
+    publishOrigin = "ui"
     functions = "netlify/functions/"
 
 [functions]
