@@ -4,7 +4,7 @@
   status = 200
 
 [build]
-    command = "npm run build:ssr && ng run copy:files"
+    command = "npm run build:ssr && npm run copy:files"
     commandOrigin = "config"
     publish = "/opt/build/repo/dist/angular-universal/browser"
     publishOrigin = "ui"
