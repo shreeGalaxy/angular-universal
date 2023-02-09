@@ -17,23 +17,25 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        loadChildren: () => import('./modules/home/home.module').then((x) => x.HomeModule),
+        loadChildren: () => import('./modules/home/home.module').then((x) => x.HomeModule)
     },
     {
         path: 'about',
-        loadComponent: () => import('./modules/public/components/about/about.component').then((x) => x.AboutComponent),
+        loadComponent: () => import('./modules/public/components/about/about.component').then((x) => x.AboutComponent)
     },
     {
         path: 'info',
-        loadComponent: () => import('./modules/public/components/info/info.component').then((x) => x.InfoComponent),
+        loadComponent: () => import('./modules/public/components/info/info.component').then((x) => x.InfoComponent)
     },
     {
         path: 'contact',
-        loadComponent: () => import('./modules/public/components/contact-us/contact-us.component').then((x) => x.ContactUsComponent),
+        loadComponent: () =>
+            import('./modules/public/components/contact-us/contact-us.component').then((x) => x.ContactUsComponent)
     },
     {
         path: '**',
-        loadComponent: () => import('./modules/public/components/not-found/not-found.component').then((x) => x.NotFoundComponent),
+        loadComponent: () =>
+            import('./modules/public/components/not-found/not-found.component').then((x) => x.NotFoundComponent)
     }
 ];
 

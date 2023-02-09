@@ -14,17 +14,17 @@ const STORE_KEY = 'lastAction';
 })
 export class AutoLogoutService {
     public getLastAction(): number {
-        let storeKey : number = 0
-            this.storage.getLocalStorageItem('STORE_KEY');
-            storeKey = parseInt(this.storage.getLocalStorageItem('STORE_KEY') || '');
-        return storeKey
+        let storeKey: number = 0;
+        this.storage.getLocalStorageItem('STORE_KEY');
+        storeKey = parseInt(this.storage.getLocalStorageItem('STORE_KEY') || '');
+        return storeKey;
     }
 
     public setLastAction(lastAction: number): void {
-            this.storage.setLocalStorageItem(STORE_KEY, lastAction.toString());
+        this.storage.setLocalStorageItem(STORE_KEY, lastAction.toString());
     }
 
-    constructor(private router: Router,private toaster: ToasterService,private storage: StorageService) {
+    constructor(private router: Router, private toaster: ToasterService, private storage: StorageService) {
         this.check();
         this.initListener();
         this.initInterval();
@@ -57,7 +57,7 @@ export class AutoLogoutService {
 
         // if (isTimeout && this.auth.loggedIn)
         if (isTimeout) {
-           this.toaster.show('error', 'Error!', 'LOGOUT')
+            this.toaster.show('error', 'Error!', 'LOGOUT');
             this.storage.clearStorage();
             this.router.navigate(['/auth/login']);
         }

@@ -7,11 +7,8 @@ import { StorageService } from '../services/storage.service';
     providedIn: 'root'
 })
 export class AfterLoginGuard implements CanActivate {
-    constructor(public router: Router, private storage:StorageService) {}
-    canActivate(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot
-    ): boolean {
+    constructor(public router: Router, private storage: StorageService) {}
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         let role = this.storage.getLocalStorageItem('Role');
         if (role === 'admin') {
             this.router.navigate(['/dashboard/your-next']);

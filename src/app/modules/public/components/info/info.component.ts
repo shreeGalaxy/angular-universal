@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    standalone:true,
+    standalone: true,
     imports: [TranslateModule],
     selector: 'app-info',
     templateUrl: './info.component.html',

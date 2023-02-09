@@ -14,28 +14,27 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-@Injectable(
-    {
+@Injectable({
     providedIn: 'root'
-}
-)
+})
 export class AuthService {
     constructor(private http: HttpClient) {}
     static readonly loginPath = AUTH_API + url.login;
     static readonly registerPath = AUTH_API + url.register;
     static readonly forgotPasswordPath = AUTH_API + url.forgotPassword;
     static readonly logoutPath = AUTH_API + url.logout;
-    
 
-    login(_LoginModel: Login):Observable<loginData[]>{
-        return this.http.post<loginData[]>(AuthService.loginPath,{
-            _LoginModel
-        },
-          httpOptions
-        )
+    login(_LoginModel: Login): Observable<loginData[]> {
+        return this.http.post<loginData[]>(
+            AuthService.loginPath,
+            {
+                _LoginModel
+            },
+            httpOptions
+        );
     }
 
-    register(_RegisterModel: Register):Observable<object>{
+    register(_RegisterModel: Register): Observable<object> {
         return this.http.post(
             AuthService.registerPath,
             {
@@ -45,7 +44,7 @@ export class AuthService {
         );
     }
 
-    forgotPassword(_ForgotModel:forgotPassword):Observable<object>{
+    forgotPassword(_ForgotModel: forgotPassword): Observable<object> {
         return this.http.post(
             AuthService.forgotPasswordPath,
             {
@@ -55,7 +54,7 @@ export class AuthService {
         );
     }
 
-    logout():Observable<object>{
+    logout(): Observable<object> {
         return this.http.post(AuthService.logoutPath, {}, httpOptions);
     }
 }

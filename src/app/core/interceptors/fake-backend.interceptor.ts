@@ -1,102 +1,96 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable, Type } from '@angular/core';
-import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import {
+    HttpRequest,
+    HttpResponse,
+    HttpHandler,
+    HttpEvent,
+    HttpInterceptor,
+    HTTP_INTERCEPTORS,
+    HttpClient
+} from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
 import { StorageService } from '../services/storage.service';
-import { environment } from '../../../environments/environment'
+import { environment } from '../../../environments/environment';
 import { loginData } from 'src/app/modules/auth/model/login';
 import { message } from 'src/app/modules/auth/model/login';
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
-    constructor(private http: HttpClient, private storage:StorageService){}
-    
+    constructor(private http: HttpClient, private storage: StorageService) {}
+
     intercept(request: HttpRequest<object>, next: HttpHandler): Observable<HttpEvent<object>> {
         const { url, method, headers, body } = request;
 
-            return handleRoute();
+        return handleRoute();
 
-        function handleRoute():Observable<any>{
+        function handleRoute(): Observable<any> {
             switch (true) {
                 case url.endsWith('/login') && method === 'POST':
                     return login();
-                    case url.endsWith('/logout') && method === 'POST':
+                case url.endsWith('/logout') && method === 'POST':
                     return logout();
-                    case url.endsWith('/register') && method === 'POST':
-                        return register();
-                        case url.endsWith('/contact') && method === 'POST':
-                            return sendContact();
-                            case url.endsWith('/editProfile') && method === 'POST':
-                                return editProfile();
+                case url.endsWith('/register') && method === 'POST':
+                    return register();
+                case url.endsWith('/contact') && method === 'POST':
+                    return sendContact();
+                case url.endsWith('/editProfile') && method === 'POST':
+                    return editProfile();
                 default:
                     return next.handle(request);
-            }    
+            }
         }
 
         // route functions
 
-        function login() : Observable<any>{
-            return ok(
-        [
-            {
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRzZHNmZHMiLCJpYXQiOjE2Njg1MDk2NzYsImV4cCI6MTY2ODU5NjA3Nn0.OwaPx3FHFd0NVRDYWYerRB4N6MLOttiIW8egmPiBPhw",
-                "message": "Login Successfully."
-            }
-        ]
-                
-             );
+        function login(): Observable<any> {
+            return ok([
+                {
+                    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRzZHNmZHMiLCJpYXQiOjE2Njg1MDk2NzYsImV4cCI6MTY2ODU5NjA3Nn0.OwaPx3FHFd0NVRDYWYerRB4N6MLOttiIW8egmPiBPhw',
+                    message: 'Login Successfully.'
+                }
+            ]);
             //  return error({
             //     "message":"user is not authorized"
             //  })
-          
         }
 
         function logout(): Observable<loginData> {
-            return ok(
-               {message:"logout successfully"}
-            );
+            return ok({ message: 'logout successfully' });
             //  return error({
             //     "message":"There is an issue with logout."
             //  })
         }
 
-        function register() : Observable<loginData>{
-            return ok(
-               {message:"register successfully"}
-            );
-                        //  return error({
+        function register(): Observable<loginData> {
+            return ok({ message: 'register successfully' });
+            //  return error({
             //     "message":"There is an issue with registering the user."
             //  })
         }
 
-        function sendContact() : Observable<loginData>{
-            return ok(
-               {message:"send Contact successfully"}
-            );
-                         //  return error({
+        function sendContact(): Observable<loginData> {
+            return ok({ message: 'send Contact successfully' });
+            //  return error({
             //     "message":"There is an issue with sending the data"
             //  })
         }
 
-        function editProfile() : Observable<loginData>{
-            return ok(
-               {message:"profile edited successfully"}
-            );
-                         //  return error({
+        function editProfile(): Observable<loginData> {
+            return ok({ message: 'profile edited successfully' });
+            //  return error({
             //     "message":"There is an issue with sending the data"
             //  })
         }
 
         // helper functions
 
-        function ok(body?: object) : Observable<any>{
-            return of(new HttpResponse({ status: 200, body }))
-                .pipe(delay(500)); // delay observable to simulate server api call
+        function ok(body?: object): Observable<any> {
+            return of(new HttpResponse({ status: 200, body })).pipe(delay(500)); // delay observable to simulate server api call
         }
 
-
-        function error(message: string) : Observable<never> {
-            return throwError(() => ({ error: { message } }))
-                .pipe(materialize(), delay(500), dematerialize());
+        function error(message: string): Observable<never> {
+            return throwError(() => ({ error: { message } })).pipe(materialize(), delay(500), dematerialize());
         }
     }
 }

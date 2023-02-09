@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LoaderService } from 'src/app/shared/components/spinner/loader.service';
 
-
 @Component({
     selector: 'app-spinner',
     templateUrl: './spinner.component.html',

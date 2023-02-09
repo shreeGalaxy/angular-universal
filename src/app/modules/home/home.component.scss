@@ -1,6 +1,6 @@
 @import '../../../assets/themes/_mixins.scss';
-:host{
-    >div{
+:host {
+    > div {
         background: url(https://s3.amazonaws.com/codecademy-content/projects/broadway/bg.jpg);
         background-size: cover;
         background-position: center center;
@@ -14,7 +14,7 @@
             max-width: 100%;
             height: calc(100vh - 182px);
         }
-        &>div  {
+        & > div {
             padding: 15px;
             text-align: center;
         }

@@ -12,7 +12,7 @@ import { DashboardService } from './services/dashboard.service';
 
 @NgModule({
     declarations: [DashboardComponent, CarrerComponent, KnowledgeComponent, EditProfileComponent, YourNextComponent],
-    imports: [CommonModule, DashboardRoutingModule,TranslateModule,ReactiveFormsModule, FormsModule],
-    providers:[DashboardService]
+    imports: [CommonModule, DashboardRoutingModule, TranslateModule, ReactiveFormsModule, FormsModule],
+    providers: [DashboardService]
 })
 export class DashboardModule {}

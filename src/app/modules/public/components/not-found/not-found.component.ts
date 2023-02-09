@@ -13,7 +13,7 @@ export class NotFoundComponent {
     constructor(private router: Router, public translate: TranslateService) {
         translate.setDefaultLang('en');
     }
-    
+
     goToHome(): void {
         this.router.navigateByUrl('/home');
     }

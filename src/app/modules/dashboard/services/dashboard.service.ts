@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { url } from '../../../core/constants/url';
-import { editProfile } from '../model/edit-profile'
+import { editProfile } from '../model/edit-profile';
 
 const AUTH_API = environment.apiUrl;
 
@@ -13,7 +13,6 @@ const httpOptions = {
 @Injectable({
     providedIn: null
 })
-
 export class DashboardService {
     constructor(private http: HttpClient) {}
     static readonly editProfilePath = AUTH_API + url.editProfile;

@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { url } from '../../../core/constants/url';
 import { Injectable } from '@angular/core';
-import { contact } from '../model/contact'
- 
+import { contact } from '../model/contact';
+
 const AUTH_API = environment.apiUrl;
 
 const httpOptions = {

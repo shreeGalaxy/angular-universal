@@ -16,15 +16,11 @@ export class AppComponent implements OnInit {
     toasts: Toast[] = [];
     showSplash: boolean = true;
     lastUrlValue: string = '';
-    constructor(
-        private toaster: ToasterService,
-        private storage: StorageService,
-        private router: Router,
-    ) { }
+    constructor(private toaster: ToasterService, private storage: StorageService, private router: Router) {}
     themeChange(theme: string): void {
         this.theme = theme;
     }
-    
+
     ngOnInit(): void {
         this.storage.setLocalStorageItem('lastAction', Date.now().toString());
         this.toaster.toast$.subscribe((toast: Toast) => {
@@ -36,7 +32,7 @@ export class AppComponent implements OnInit {
             this.showSplash = false;
         });
     }
-    
+
     unsubscribeToastMsg(): void {
         const broadcastToastMessage = timer(3000, 1000);
         this.toastSubscription = broadcastToastMessage.subscribe(() => {
@@ -45,7 +41,7 @@ export class AppComponent implements OnInit {
             this.toastSubscription.unsubscribe();
         });
     }
-    
+
     remove(index: number): void {
         this.toasts.splice(index, 1);
     }

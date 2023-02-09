@@ -9,6 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
     declarations: [],
     imports: [],
-    providers:[]
+    providers: []
 })
 export class PublicModule {}

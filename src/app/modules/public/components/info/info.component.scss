@@ -1,6 +1,6 @@
 @import '../../../../../assets/themes/_mixins.scss';
-:host{
-    >div {    
+:host {
+    > div {
         height: calc(100vh - 113px);
         max-width: calc(100% - 200px);
         margin-left: auto;
@@ -10,7 +10,7 @@
             max-width: 100%;
             height: calc(100vh - 182px);
         }
-        >div {
+        > div {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
@@ -31,5 +31,5 @@
                 @include button(#0b5ed7, #fff, #0d6efd, #fff);
             }
         }
-    } 
+    }
 }

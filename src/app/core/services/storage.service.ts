@@ -5,8 +5,7 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
     providedIn: 'root'
 })
 export class StorageService {
-    constructor(@Inject(PLATFORM_ID) private platformId: object) {
-    }
+    constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
     setLocalStorageItem(key: string, value: string | number | object): void {
         if (key && value && isPlatformBrowser(this.platformId)) {
@@ -18,7 +17,7 @@ export class StorageService {
         if (isPlatformBrowser(this.platformId)) localStorage.clear();
     }
 
-    getLocalStorageItem(key: string): string | null{
+    getLocalStorageItem(key: string): string | null {
         if (key && isPlatformBrowser(this.platformId)) {
             const value = localStorage.getItem(key);
             if (value) {

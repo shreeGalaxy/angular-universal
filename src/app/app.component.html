@@ -6,7 +6,7 @@
         <app-toaster *ngFor="let toast of toasts; let i = index" [toast]="toast" [i]="i" (remove)="remove(i)">
         </app-toaster>
         <router-outlet></router-outlet>
-        <app-footer ></app-footer>
+        <app-footer></app-footer>
     </div>
     <!-- <app-splash-screen [showSplash]="showSplash"></app-splash-screen> -->
 </div>

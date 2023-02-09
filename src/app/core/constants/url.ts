@@ -5,5 +5,5 @@ export const url = {
     logout: 'logout',
     forgotPassword: 'forgotPassword',
     sendContact: 'contact',
-    editProfile :'editProfile'
+    editProfile: 'editProfile'
 };

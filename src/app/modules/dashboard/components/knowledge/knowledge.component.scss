@@ -1,6 +1,6 @@
 @import '../../../../../assets/themes/_mixins.scss';
 :host {
-    >div {
+    > div {
         height: calc(100vh - 113px);
         max-width: calc(100% - 200px);
         margin-left: auto;
@@ -10,7 +10,7 @@
             max-width: 100%;
             height: calc(100vh - 182px);
         }
-        &>div  {
+        & > div {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
@@ -20,7 +20,7 @@
             @media screen and (max-width: 991px) {
                 overflow-y: auto;
             }
-            &>div {
+            & > div {
                 width: calc(50% - 10px);
                 padding: 15px;
                 margin: 10px 5px;
@@ -50,7 +50,7 @@
                 text-transform: none;
                 margin-top: 10px;
             }
-            p{
+            p {
                 text-align: center;
                 font-size: 20px;
             }
