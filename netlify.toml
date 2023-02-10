@@ -1,13 +1,10 @@
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/start"
   status = 200
 
 [build]
     command = "npm run build:ssr && npm run copy:files"
-    commandOrigin = "config"
-    publish = "/opt/build/repo/dist/angular-universal/browser"
-    publishOrigin = "ui"
     functions = "netlify/functions/"
 
 [functions]
