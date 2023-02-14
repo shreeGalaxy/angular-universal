@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Injectable, Type } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
     HttpRequest,
     HttpResponse,
@@ -12,17 +12,21 @@ import {
 import { Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
 import { StorageService } from '../services/storage.service';
-import { environment } from '../../../environments/environment';
 import { loginData } from 'src/app/modules/auth/model/login';
-import { message } from 'src/app/modules/auth/model/login';
+import { environment } from 'src/environments/environment';
+
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
-    constructor(private http: HttpClient, private storage: StorageService) {}
+    constructor() {}
 
     intercept(request: HttpRequest<object>, next: HttpHandler): Observable<HttpEvent<object>> {
-        const { url, method, headers, body } = request;
+        const { url, method } = request;
 
-        return handleRoute();
+        if (!environment.production) {
+            return handleRoute();
+        } else {
+            return next.handle(request);
+        }
 
         function handleRoute(): Observable<any> {
             switch (true) {
@@ -43,7 +47,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         // route functions
 
-        function login(): Observable<any> {
+        function login(): Observable<loginData> {
             return ok([
                 {
                     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRzZHNmZHMiLCJpYXQiOjE2Njg1MDk2NzYsImV4cCI6MTY2ODU5NjA3Nn0.OwaPx3FHFd0NVRDYWYerRB4N6MLOttiIW8egmPiBPhw',

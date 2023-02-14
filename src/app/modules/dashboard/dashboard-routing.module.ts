@@ -11,11 +11,6 @@ const routes: Routes = [
         path: '',
         component: DashboardComponent,
         children: [
-            // {
-            //   path       : '',
-            //   redirectTo : 'dashboard',
-            //   pathMatch  : 'full',
-            // },
             {
                 path: 'your-next',
                 component: YourNextComponent

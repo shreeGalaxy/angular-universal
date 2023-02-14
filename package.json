@@ -1,5 +1,5 @@
 {
-  "name": "angular-universal",
+  "name": "angular-boilerplate",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,14 +7,14 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run angular-universal:serve-ssr",
-    "serve:ssr": "node dist/angular-universal/server/main.js",
-    "build:ssr": "ng build && ng run angular-universal:server:production",
-    "prerender": "ng run angular-universal:prerender",
+    "dev:ssr": "ng run Angular-Boilerplate:serve-ssr",
+    "serve:ssr": "node dist/Angular-Boilerplate/server/main.js",
+    "build:ssr": "ng build && ng run Angular-Boilerplate:server",
+
+    "prerender": "ng run Angular-Boilerplate:prerender",
     "prepare": "husky install",
-    "copy:files": "node ./scripts/copyFiles.js",
     "lint": "ng lint",
-    "prettier": "prettier --config .prettierrc --check \"src/**/*.{ts,scss,html}\" --quiet --fix",
+    "prettier": "prettier --config .prettierrc --check --quiet --fix",
     "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write"
   },
   "private": true,
@@ -28,19 +28,16 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/platform-server": "^14.0.0",
     "@angular/router": "^14.2.0",
-    "@angular/service-worker": "^14.2.0",
-    "@netlify/functions": "github:netlify/functions",
-    "@netlify/plugin-angular-universal": "^1.0.1",
     "@nguniversal/express-engine": "^14.2.3",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "@types/sass": "^1.43.1",
     "eslint": "^8.32.0",
     "express": "^4.15.2",
     "rxjs": "~7.5.0",
-    "serverless-http": "^3.1.1",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@types/sass": "^1.43.1",
+    "@angular/service-worker": "^14.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.8",
@@ -67,9 +64,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "prettier-eslint": "^15.0.1",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "lint-staged": "^13.1.0"
   }
 }

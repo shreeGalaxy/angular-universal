@@ -1,3 +1,5 @@
+@import '../../../../assets/style/color.scss';
+@import '../../../../assets/themes/mixins';
 :host {
     > div {
         position: fixed;
@@ -15,7 +17,7 @@
             position: absolute;
             top: 7px;
             right: 10px;
-            font-size: 1.5em;
+            @include fonts(1.5em);
             cursor: pointer;
         }
         h4 {
@@ -27,21 +29,21 @@
     }
 }
 .toast-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+    color: $SUCCESS;
+    background-color: $LightGreen;
+    border-color: $LightGreen;
 }
 
 .toast-error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+    color: $DANGER;
+    background-color: $Lightred;
+    border-color: $Lightred;
 }
 
 .toast-warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
+    color: $WARNING;
+    background-color: $LightYellow;
+    border-color: $LightYellow;
 }
 
 @keyframes move {

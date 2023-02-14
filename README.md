@@ -5,8 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Dependencies
 
     Angular : 14
-    Angular CLI : 14.2.8
-    Angular Universal : 15.0.0
+    Angular CLI : 14.2.10
+    Angular Universal : 14.2.3
     Package Manager: npm version v8.5.0
     Node version v16.14.2
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
+import { roleType } from 'src/app/modules/auth/role.enum';
 import { StorageService } from '../services/storage.service';
 
 @Injectable({
@@ -8,9 +8,9 @@ import { StorageService } from '../services/storage.service';
 })
 export class AfterLoginGuard implements CanActivate {
     constructor(public router: Router, private storage: StorageService) {}
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    canActivate(): boolean {
         let role = this.storage.getLocalStorageItem('Role');
-        if (role === 'admin') {
+        if (role === roleType.admin) {
             this.router.navigate(['/dashboard/your-next']);
         }
         return true;

@@ -3,9 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { Router } from '@angular/router';
-import { ToasterService } from '../../../shared/components/toaster/toaster.service';
-import { LoaderService } from '../../../shared/components/spinner/loader.service';
-
+import { ToasterService } from 'src/app/shared/components/toaster/toaster.service';
+import { LoaderService } from 'src/app/shared/components/spinner/loader.service';
+import { roleType } from 'src/app/modules/auth/role.enum';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
     mobileScreenWidth: number = 992;
     theme: string = 'theme-light';
     width: number = 0;
+    roleType: string = roleType.admin;
+
     @Output() themeChangeEvent = new EventEmitter<string>();
 
     constructor(

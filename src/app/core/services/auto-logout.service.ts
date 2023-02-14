@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
-import { Inject, PLATFORM_ID } from '@angular/core';
 import { ToasterService } from '../../shared/components/toaster/toaster.service';
 import { StorageService } from './storage.service';
 
@@ -55,7 +53,6 @@ export class AutoLogoutService {
         const diff = timeleft - now;
         const isTimeout = diff < 0;
 
-        // if (isTimeout && this.auth.loggedIn)
         if (isTimeout) {
             this.toaster.show('error', 'Error!', 'LOGOUT');
             this.storage.clearStorage();

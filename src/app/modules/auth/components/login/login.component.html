@@ -14,7 +14,12 @@
                         (loginForm.controls.email?.dirty || loginForm.controls.email?.touched)
                     "
                 >
-                    {{ 'EMAIL_IS_REQUIRED' | translate }}
+                    <span *ngIf="loginForm.get('email')?.hasError('required')">
+                        {{ 'EMAIL_IS_REQUIRED' | translate }}
+                    </span>
+                    <span *ngIf="loginForm.get('email')?.hasError('emailValidateError')">
+                        {{ 'VALID_EMAIL_REQUIRED' | translate }}
+                    </span>
                 </div>
             </div>
             <div>

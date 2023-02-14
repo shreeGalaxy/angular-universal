@@ -1,4 +1,5 @@
 @import '../../../../../assets/themes/_mixins.scss';
+@import '../../../../../assets/style/color.scss';
 :host {
     > div {
         height: calc(100vh - 113px);
@@ -22,22 +23,22 @@
             section {
                 text-align: center;
                 h2 {
-                    font-size: 35px;
+                    @include fonts(35px);
                     margin: 0 0 15px;
                 }
                 input {
                     border: 0;
                     width: 100%;
-                    font-size: 1rem;
-                    background-color: #5a584e;
-                    color: #fff;
+                    @include fonts(1rem);
+                    background-color: $Black;
+                    color: $PureWhite;
                     border-radius: 4px;
                     resize: none;
                     padding: 10px 15px;
                     outline: none;
                     max-width: 300px;
                     &::placeholder {
-                        color: #cbcbcb;
+                        color: $LightGray;
                     }
                 }
                 + section {
@@ -50,10 +51,10 @@
                     width: calc(50% - 20px);
                     padding: 30px 15px;
                     margin: 10px;
-                    background: #fff;
+                    background: $PureWhite;
                     border-radius: 6px;
                     text-align: center;
-                    box-shadow: 0 5px 15px 0px rgba(255, 255, 255, 0.4);
+                    box-shadow: 0 5px 15px 0px $lightWhiteRGB;
                     @media screen and (min-width: 768px) and (max-width: 991px) {
                         width: 100%;
                         margin: 10px 0px;
@@ -69,11 +70,11 @@
                     }
                     h3 {
                         margin: 0 0 10px;
-                        color: #333;
+                        color: $DARK;
                     }
                     p {
-                        font-size: 16px;
-                        color: #333;
+                        @include fonts(16px);
+                        color: $DARK;
                         max-width: 400px;
                         margin: 0 auto 10px;
                     }
@@ -84,9 +85,9 @@
             }
 
             a {
-                @include button(#0b5ed7, #fff, #0d6efd, #fff);
+                @include button($PRIMARY, $PureWhite, $INFO, $PureWhite);
                 padding: 10px 20px;
-                font-size: 14px;
+                @include fonts(14px);
                 text-transform: none;
                 margin-top: 10px;
             }
