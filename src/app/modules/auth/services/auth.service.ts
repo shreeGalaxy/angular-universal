@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { url } from '../../../core/constants/url';
 import { Injectable } from '@angular/core';
-import { Login } from '../model/login';
-import { loginData } from '../model/login';
+import { Login, message, loginData } from '../model/login';
 import { Register } from '../model/register';
 import { forgotPassword } from '../model/forgotPassword';
 
@@ -34,8 +33,8 @@ export class AuthService {
         );
     }
 
-    register(_RegisterModel: Register): Observable<object> {
-        return this.http.post(
+    register(_RegisterModel: Register): Observable<message[]> {
+        return this.http.post<message[]>(
             AuthService.registerPath,
             {
                 _RegisterModel

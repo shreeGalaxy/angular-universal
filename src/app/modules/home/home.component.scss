@@ -1,4 +1,5 @@
 @import '../../../assets/themes/_mixins.scss';
+@import '../../../assets/style/color.scss';
 :host {
     > div {
         background: url(https://s3.amazonaws.com/codecademy-content/projects/broadway/bg.jpg);
@@ -6,8 +7,8 @@
         background-position: center center;
         background-repeat: no-repeat;
         height: calc(100vh - 113px);
-        max-width: calc(100% - 200px);
-        margin-left: auto;
+        // max-width: calc(100% - 200px);
+        // margin-left: auto;
         overflow-y: auto;
         @include flex(center, center);
         @media screen and (max-width: 767px) {
@@ -19,11 +20,11 @@
             text-align: center;
         }
         h1 {
-            color: #333;
+            color: $DARK;
             @include h1Font;
         }
         a {
-            @include button(#333, #fff, #555, #fff);
+            @include button($DARK, $PureWhite, $Pink900, $PureWhite);
         }
     }
 }

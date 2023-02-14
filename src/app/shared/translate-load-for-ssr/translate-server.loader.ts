@@ -16,7 +16,7 @@ export class TranslateServerLoader implements TranslateLoader {
             const assets_folder = join(
                 process.cwd(),
                 'dist',
-                'angular-universal', // Your project name here
+                'Angular-Boilerplate', // Your project name here
                 'browser',
                 'assets',
                 this.prefix

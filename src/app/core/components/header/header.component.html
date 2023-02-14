@@ -7,23 +7,18 @@
             </span>
             <div *ngIf="showMobDropdown">
                 <div [ngClass]="isMobile ? 'mobile-only' : 'desktop-only'">
-                    <ul *ngIf="readLocalStorageValue('Role') !== 'admin'" id="menu">
+                    <ul id="menu">
                         <li>
+                            <a routerLink="/home">{{ 'HOME' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/about-us">{{ 'ABOUT' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/contact-us">{{ 'CONTACT' | translate }}</a>
+                        </li>
+                        <li *ngIf="readLocalStorageValue('Role') !== roleType">
                             <a routerLink="auth/login">{{ 'LOGIN' | translate }}</a>
-                        </li>
-                        <li>
-                            <a routerLink="auth/signup">{{ 'SIGNUP' | translate }}</a>
-                        </li>
-                    </ul>
-                    <ul *ngIf="readLocalStorageValue('Role') === 'admin'" id="menu">
-                        <li>
-                            <a routerLink="dashboard/your-next">{{ 'NAVIGATE_YOUR_NEXT' | translate }}</a>
-                        </li>
-                        <li>
-                            <a routerLink="dashboard/knowledge">{{ 'GALAXY_KNOWLEDGE' | translate }}</a>
-                        </li>
-                        <li>
-                            <a routerLink="dashboard/careers">{{ 'CAREERS' | translate }}</a>
                         </li>
                     </ul>
                     <div>
@@ -40,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="readLocalStorageValue('Role') === 'admin'" (click)="showDropdown = !showDropdown">
+            <div *ngIf="readLocalStorageValue('Role') === roleType" (click)="showDropdown = !showDropdown">
                 <img
                     class="userImage"
                     src="../../../../assets/images/user.png"
@@ -48,7 +43,7 @@
                     (clickedOutside)="onProfileClick()"
                 />
             </div>
-            <div class="sub-menu" *ngIf="showDropdown && readLocalStorageValue('Role') === 'admin'">
+            <div class="sub-menu" *ngIf="showDropdown && readLocalStorageValue('Role') === roleType">
                 <div class="sub">
                     <img src="../../../../assets/images/user.png" />
                     <h3>{{ 'ADMIN' | translate }}</h3>

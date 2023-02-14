@@ -4,8 +4,7 @@ export function emailValidator(control: AbstractControl): object | null {
     let enteredEmail = control.value;
     let emailRegex: RegExp =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    return !emailRegex.test(enteredEmail) && enteredEmail ? { requirements: true } : null;
+    return !emailRegex.test(enteredEmail) && enteredEmail ? { emailValidateError: true } : null;
 }
 export function passwordValidator(control: AbstractControl): object | null {
     let enteredPassword = control.value;

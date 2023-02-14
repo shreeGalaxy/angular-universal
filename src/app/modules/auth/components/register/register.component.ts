@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { passwordValidator } from '../../../../core/validators/custom.validators';
+import { message } from '../../model/login';
 import { Register } from '../../model/register';
 import { ToasterService } from 'src/app/shared/components/toaster/toaster.service';
 import { LoaderService } from 'src/app/shared/components/spinner/loader.service';
+import { emailValidator, passwordValidator } from '../../../../core/validators/custom.validators';
 
 @Component({
     selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent {
     errorMessage = '';
     registrationForm = this.fb.group({
         name: new FormControl('', Validators.required),
-        email: new FormControl('', [Validators.required, Validators.email]),
+        email: new FormControl('', [Validators.required, emailValidator]),
         password: new FormControl('', [Validators.required, passwordValidator])
     });
 
@@ -39,7 +40,7 @@ export class RegisterComponent {
             return this.registrationForm.markAllAsTouched();
         }
         this.authService.register(registerFormData).subscribe({
-            next: (data) => {
+            next: (data: message[]) => {
                 this.loadingService.setLoading(false);
                 if (data) {
                     this.toaster.show('success', 'Hurray!', 'Registration successfully');

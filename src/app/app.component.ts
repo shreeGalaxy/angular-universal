@@ -4,22 +4,19 @@ import { Toast } from './core/interface/toast.interface';
 import { ToasterService } from './shared/components/toaster/toaster.service';
 import { StorageService } from './core/services/storage.service';
 import { Router } from '@angular/router';
+import { roleType } from 'src/app/modules/auth/role.enum';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    title = 'Angular-Boilerplate';
     toastSubscription: Subscription = new Subscription();
     theme: string = 'theme-light';
     toasts: Toast[] = [];
-    showSplash: boolean = true;
-    lastUrlValue: string = '';
-    constructor(private toaster: ToasterService, private storage: StorageService, private router: Router) {}
-    themeChange(theme: string): void {
-        this.theme = theme;
-    }
+    splashLoaded: boolean = false;
+    roleType: string = roleType.admin;
+    constructor(private toaster: ToasterService, private storage: StorageService) {}
 
     ngOnInit(): void {
         this.storage.setLocalStorageItem('lastAction', Date.now().toString());
@@ -27,10 +24,14 @@ export class AppComponent implements OnInit {
             this.toasts = [toast, ...this.toasts];
             this.unsubscribeToastMsg();
         });
-        const splashScreenState = timer(1000);
-        splashScreenState.subscribe(() => {
-            this.showSplash = false;
-        });
+    }
+
+    themeChange(theme: string): void {
+        this.theme = theme;
+    }
+
+    onSplashLoad(isSplashLoaded: boolean): void {
+        this.splashLoaded = isSplashLoaded;
     }
 
     unsubscribeToastMsg(): void {
@@ -44,5 +45,9 @@ export class AppComponent implements OnInit {
 
     remove(index: number): void {
         this.toasts.splice(index, 1);
+    }
+
+    readLocalStorageValue(key: string): string | null {
+        return this.storage.getLocalStorageItem(key);
     }
 }

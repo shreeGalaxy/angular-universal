@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoaderService } from 'src/app/shared/components/spinner/loader.service';
+import { LoaderService } from './loader.service';
 
 @Component({
     selector: 'app-spinner',

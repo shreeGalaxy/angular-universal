@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { roleType } from '../../modules/auth/role.enum';
+import { roleType } from 'src/app/modules/auth/role.enum';
 import { modalStatus } from 'src/app/shared/components/modal/modal.enum';
 import { ModalService } from '../../shared/components/modal/modal.service';
 import { StorageService } from '../services/storage.service';

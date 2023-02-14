@@ -20,15 +20,11 @@ const routes: Routes = [
         loadChildren: () => import('./modules/home/home.module').then((x) => x.HomeModule)
     },
     {
-        path: 'about',
+        path: 'about-us',
         loadComponent: () => import('./modules/public/components/about/about.component').then((x) => x.AboutComponent)
     },
     {
-        path: 'info',
-        loadComponent: () => import('./modules/public/components/info/info.component').then((x) => x.InfoComponent)
-    },
-    {
-        path: 'contact',
+        path: 'contact-us',
         loadComponent: () =>
             import('./modules/public/components/contact-us/contact-us.component').then((x) => x.ContactUsComponent)
     },
