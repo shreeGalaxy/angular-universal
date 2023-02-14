@@ -11,7 +11,7 @@ import { AppServerModule } from './src/main.server';
 const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
-const template = fs.readFileSync(path.join('.', 'dist/Angular-Boilerplate/browser', 'index.html')).toString();
+const template = fs.readFileSync(path.join('.', 'dist/Angular-Universal/browser', 'index.html')).toString();
 const win = domino.createWindow(template);
 // tslint:disable-next-line:no-string-literal
 global['window'] = win;
@@ -41,7 +41,7 @@ function getMockMutationObserver() {
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
     const server = express();
-    const distFolder = join(process.cwd(), 'dist/Angular-Boilerplate/browser');
+    const distFolder = join(process.cwd(), 'dist/Angular-Universal/browser');
     const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
     // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)

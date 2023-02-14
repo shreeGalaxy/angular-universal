@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "Angular-Boilerplate": {
+        "Angular-Universal": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/Angular-Boilerplate/browser",
+                        "outputPath": "dist/Angular-Universal/browser",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -64,10 +64,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "Angular-Boilerplate:build:production"
+                            "browserTarget": "Angular-Universal:build:production"
                         },
                         "development": {
-                            "browserTarget": "Angular-Boilerplate:build:development"
+                            "browserTarget": "Angular-Universal:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "Angular-Boilerplate:build"
+                        "browserTarget": "Angular-Universal:build"
                     }
                 },
                 "test": {
@@ -87,7 +87,7 @@
                         "karmaConfig": "karma.conf.js",
                         "inlineStyleLanguage": "scss",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.scss", "node_modules/sweetalert2/src/sweetalert2.scss"],
+                        "styles": ["src/styles.scss"],
                         "scripts": []
                     }
                 },
@@ -100,7 +100,7 @@
                 "server": {
                     "builder": "@angular-devkit/build-angular:server",
                     "options": {
-                        "outputPath": "dist/Angular-Boilerplate/server",
+                        "outputPath": "dist/Angular-Universal/server",
                         "main": "server.ts",
                         "tsConfig": "tsconfig.server.json",
                         "inlineStyleLanguage": "scss"
@@ -127,12 +127,12 @@
                     "builder": "@nguniversal/builders:ssr-dev-server",
                     "configurations": {
                         "development": {
-                            "browserTarget": "Angular-Boilerplate:build:development",
-                            "serverTarget": "Angular-Boilerplate:server:development"
+                            "browserTarget": "Angular-Universal:build:development",
+                            "serverTarget": "Angular-Universal:server:development"
                         },
                         "production": {
-                            "browserTarget": "Angular-Boilerplate:build:production",
-                            "serverTarget": "Angular-Boilerplate:server:production"
+                            "browserTarget": "Angular-Universal:build:production",
+                            "serverTarget": "Angular-Universal:server:production"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -144,12 +144,12 @@
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "Angular-Boilerplate:build:production",
-                            "serverTarget": "Angular-Boilerplate:server:production"
+                            "browserTarget": "Angular-Universal:build:production",
+                            "serverTarget": "Angular-Universal:server:production"
                         },
                         "development": {
-                            "browserTarget": "Angular-Boilerplate:build:development",
-                            "serverTarget": "Angular-Boilerplate:server:development"
+                            "browserTarget": "Angular-Universal:build:development",
+                            "serverTarget": "Angular-Universal:server:development"
                         }
                     },
                     "defaultConfiguration": "production"
