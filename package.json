@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run Angular-Universal:serve-ssr",
     "serve:ssr": "node dist/Angular-Universal/server/main.js",
-    "build:ssr": "ng build && ng run Angular-Universal:server",
+    "build:ssr": "ng build && ng run Angular-Universal:server:production",
     "copy:files": "node ./scripts/copyFiles.js",
     "prerender": "ng run Angular-Universal:prerender",
     "prepare": "husky install",
